@@ -27,7 +27,8 @@ has_many :livro
             :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i },
             :on => :edit
 
-  validates_presence_of :nome, :sobrenome, :aceito
+  validates_presence_of :nome, :sobrenome , :avatar
+  validates_acceptance_of :aceito
 
 
   def self.authenticate(email, senha)
