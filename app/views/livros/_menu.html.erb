@@ -1,0 +1,17 @@
+<div id="imagem">
+<center>
+<%= image_tag(@usuario.avatar.url(:thumb)) %> <br />
+</center>
+</div>
+
+<h3>
+<%= @usuario.nome %> <br />
+<%= @usuario.sobrenome %> 
+</h3>
+
+<ul>
+<li> <%= link_to "Perfil", perfil_path %> </li>
+<li> <%= link_to "Livros", livros_path %> </li>
+<li> <%= link_to "Pessoas", amigos_path %> </li>
+<li> <%= link_to "Fotos", "#" %> </li>
+</ul>

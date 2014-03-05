@@ -1,0 +1,79 @@
+<div class="cadastro">
+  <h1>Editar perfil</h1>
+ <center> 
+
+
+<%= form_for(@usuario, :html =>{:multipart => true}) do |f| %>
+ <% if @usuario.errors.any? %>
+<div id="error_explanation">
+  <div class="alert alert-error">
+ 
+ <%= pluralize(@usuario.errors.count, "Error encontrado") %>  abaixo: </div>
+
+<ul>
+<% @usuario.errors.full_messages.each do |msg| %>
+        <li> *<%= msg %></li>
+      <% end %>
+  </ul>
+</div>
+<% end %>
+  
+ <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+ </p>
+
+ <p>
+    <%= f.label :sobrenome %><br />
+    <%= f.text_field :sobrenome %>
+ </p>
+
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+ </p>
+ <p>
+    <%= f.label :aniversario %><br />
+    <%= f.text_field :aniversario %>
+ </p>
+
+ <p>
+    <%= f.label :sexo %><br />
+    <%= f.select :sexo, (["Masculino", "Feminino"]) %>
+ </p>
+<p>
+    <%= f.label "Foto" %><br />
+    <%= f.file_field :avatar %>
+ </p>
+
+   <%= f.submit "Atualizar dados", class: "bnt bnt-lg bnt-group-primary"%>
+  <%= link_to "Excluir conta", @usuario, class: "bnt bnt-lg bnt-group-primary" , method: :delete, data: {confirm: 'Deseja deletar sua conta?'} %>
+
+</div>
+
+<br />
+
+  <div class="cadastro">
+    <center>
+    <h3> Atualizar senha </h3>
+
+  <p>
+    <%= f.label "Nova senha" %><br />
+    <%= f.password_field :senha %>
+  </p>
+
+   <p> <b> Confirme a nova senha </b> <br />
+    <%= f.password_field :senha_confirmation %>
+  </p>
+
+    <%= f.submit "Atualizar Senha", class: "bnt bnt-lg bnt-group-primary"%>
+  </center>
+   
+   </div>
+  
+
+<% end %>
+
+</center>
+
+<br />

@@ -1,0 +1,15 @@
+<div id="menu">
+	<%= render "menu" %>
+</div>
+
+<div id="conteudo">
+<h2> Listas de amigos </h2>
+
+<% @usuarios.each do |u| %>
+
+	<p><%= image_tag(u.avatar.url(:ico))%> <%= u.nome %> <%= u.sobrenome%>
+		<%= link_to "Visitar", u %> |
+		<%= link_to "+ Amigo", "#" %></p>
+
+<% end %>
+</div> 

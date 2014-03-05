@@ -1,0 +1,32 @@
+<% if current_user %>
+<div class="livro_cad">
+
+	<p> Compatilhe um livro </p>
+
+<%= form_for([@usuarios, @usuario.livro.build]) do |f| %>
+<table>
+	<tr>
+		<td> Titulo </td>
+		<td> Autor </td>
+	</tr>
+	<tr>
+		<td> <%= f.text_field :titulo, :size => "30" %> </td>
+		<td> <%= f.text_field :autor,  :size => "30" %> </td>
+	</tr>
+	<tr>
+		<td colspan="2"> Comentario: <br />
+			<%= f.text_area :comentario, :size => "60x5" %> <td>
+	</tr>
+	
+	<tr>
+		<td> <%= f.submit values="Compartilhar" %> </td>
+	</tr>
+
+
+
+</table>
+
+<% end %>
+
+</div>
+<% end %>

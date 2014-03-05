@@ -1,0 +1,30 @@
+<div class="livro_cad">
+
+	<p> Compatilhe um livro </p>
+
+<%= form_tag livros_path do %>
+<table>
+	<tr>
+		<td> Titulo </td>
+		<td> Autor </td>
+	</tr>
+	<tr>
+		<td> <%= text_field_tag :titulo, nil, :size => "30" %> </td>
+		<td> <%= text_field_tag :autor, nil, :size => "30" %> </td>
+	</tr>
+	<tr>
+		<td colspan="2"> Comentario: <br />
+			<%= text_area_tag :cometario, nil, :size => "60x5" %> <td>
+	</tr>
+	
+	<tr>
+		<td> <%= submit_tag values="Compartilhar" %> </td>
+	</tr>
+
+
+
+</table>
+
+<% end %>
+
+<div>

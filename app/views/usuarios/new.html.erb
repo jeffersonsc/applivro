@@ -1,0 +1,68 @@
+<h1>Cadastre-se</h1>
+<div class="cadastro">
+ <center> 
+
+<%= form_for(@usuario, :html =>{:multipart => true}) do |f| %>
+
+ <% if @usuario.errors.any? %>
+<div id="error_explanation">
+  <div class="alert alert-error">
+ 
+ <%= pluralize(@usuario.errors.count, "Error encontrado") %>  abaixo: </div>
+
+<ul>
+<% @usuario.errors.full_messages.each do |msg| %>
+        <li> *<%= msg %></li>
+      <% end %>
+  </ul>
+</div>
+<% end %>
+  
+ <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+ </p>
+
+ <p>
+    <%= f.label :sobrenome %><br />
+    <%= f.text_field :sobrenome %>
+ </p>
+
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+ </p>
+ <p>
+    <%= f.label :aniversario %><br />
+    <%= f.text_field :aniversario %>
+ </p>
+
+ <p>
+    <%= f.label :sexo %><br />
+    <%= f.select :sexo, (["Masculino", "Feminino"]) %>
+ </p>
+ <p>
+    <%= f.label "Foto" %><br />
+    <%= f.file_field :avatar %>
+ </p>
+  <p>
+    <%= f.label :senha %><br />
+    <%= f.password_field :senha %>
+  </p>
+
+   <p> <b> Confirme a senha </b> <br />
+    <%= f.password_field :senha_confirmation %>
+  </p>
+
+   <p>
+    <%= link_to "Termo de uso", '#' %>
+    <%= f.check_box :aceito %>
+ </p>
+   
+  
+  <%= f.submit "Criar conta agora", class: "bnt bnt-lg bnt-group-primary"%>
+
+<% end %>
+
+</center>
+</div>

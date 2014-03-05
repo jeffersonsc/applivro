@@ -1,0 +1,29 @@
+<div id="menu">
+<%= render "menu" %>
+</div>
+
+<div id="conteudo">
+
+<h3> Publicações <%= @usuario.livro.count %></h3>
+<%= will_paginate  %>
+
+<% if @usuario.livro.any? %>
+<% @livros.each do |livro| %>
+<div class="post">
+<p> Titulo: <%= livro.titulo %> </p>
+<p> Autor: <%= livro.autor %> </p>
+<p> Comentário: <br />
+<%= livro.comentario %>
+</p>
+</div>
+<div id="opt">
+<p> <%= link_to "Excluir", livro, method: :delete, data: { confirm: 'Deseja excluir publicação?' } %>
+</div>
+
+<% end %>
+
+
+<center> <%= will_paginate  %> </center>
+<% end %>
+
+</div>

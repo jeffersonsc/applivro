@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Livro aps</title>
+  <%= stylesheet_link_tag    "application", :media => "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true  %>
+  <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+    <% if current_user %>  
+    
+    <%= link_to "Livro aps", index_usuario_path, id: "logo" %> 
+    <% else %>
+    
+    <%= link_to "Livro aps", home_path , id: "logo" %> 
+
+    <% end %>    
+<nav>   
+    <ul class="nav pull-right nav-tabs">     
+<% if current_user %> 
+          
+                   
+          <li> <%= link_to "Início", index_usuario_path %> </li>
+          <li> <%= link_to "Pessoas", listar_path %> </li>
+           <li><%= link_to "Livros", livros_path %> </li>
+          <li> <%= link_to "Perfil", perfil_path %> </li>
+          <li> <%= link_to "Sobre", sobre_path %> </li>
+          <li> <%= link_to "Sair", sair_path %> </li>        
+
+          <% else %>
+          
+          <li> <%= link_to "Início", home_path %> </li> 
+          <li> <%= link_to "Entrar", entrar_path %> </li>
+          <li> <%= link_to "Cadastre-se", cadastro_path %> </li>
+          <li> <%= link_to "Sobre", sobre_path %> </li>
+  
+          <% end %>     
+        </ul>
+      </nav>
+    </div>
+ </div>
+</header>
+
+       <div id="logado">
+        <% if current_user %>
+        Logado como:  <%= current_user.email %>
+        <% end %>
+       </div>
+    	   
+     <% flash.each do |key , msg| %>
+     <div class="<%= key %>"> <%= msg %> </div>
+     <% end %>
+
+<div class="container">
+
+<%= yield %>
+
+</div>
+
+<div class="rodape">
+  <h4> Criado por Jefferson silva <%= link_to "sobre", sobre_path %></h4>
+  </div>
+
+</body>
+</html>

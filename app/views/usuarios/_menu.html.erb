@@ -1,0 +1,22 @@
+<div id="imagem">
+<center>
+	<% if @usuario.avatar == nil %>
+	sem foto
+<% else %>	
+	<%= image_tag(@usuario.avatar.url(:thumb)) %> <br />
+<% end %>
+</center>
+</div>
+
+<h3>
+<%= @usuario.nome %> <br />
+<%= @usuario.sobrenome %> 
+</h3>
+<% if current_user %>
+<ul>
+<li> <%= link_to "Perfil", perfil_path %> </li>
+<li> <%= link_to "Livros", livros_path %> </li>
+<li> <%= link_to "Pessoas", listar_path %> </li>
+
+</ul>
+<% end %>

@@ -1,0 +1,13 @@
+<div id="menu">
+<%= render "menu" %>
+</div>
+
+<div id="conteudo">
+
+	<%= render "cadlivro" %>
+	<br />
+	<h3> Suas publicações <%= @usuario.livro.count %> </h3>
+
+	<%= render "publica"%>
+
+</div>
